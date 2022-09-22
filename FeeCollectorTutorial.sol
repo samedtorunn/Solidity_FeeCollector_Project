@@ -6,11 +6,11 @@ contract FeeCollector { //
     uint256 public balance;
 
     constructor() {
-        owner = msg.sender; // store information who deployed contract
+        owner = msg.sender;
     }
 
     receive() payable external {
-        balance += msg.value; // keep track of balance (in WEI)
+        balance += msg.value;
     }
 
 
@@ -18,7 +18,7 @@ contract FeeCollector { //
         require(msg.sender == owner, "Only owner can withdraw");
         require(amount <= balance, "Insufficient funds");
         
-        destAddr.transfer(amount); // send funds to given address
+        destAddr.transfer(amount); 
         balance -= amount;
     }
 }
