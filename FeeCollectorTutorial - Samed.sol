@@ -6,11 +6,11 @@ contract FeeCollector {
     uint256 public balance;
 
     constructor() {
-        owner = msg.sender;
+        owner = msg.sender; // sets the owner as the deployer adress.
     }
 
     receive() payable external {
-        balance += msg.value;
+        balance += msg.value; // Message value is represented in wei.
     }
 
 
@@ -20,6 +20,6 @@ contract FeeCollector {
         require(amount <= balance, "Funds are not sufficient");
 
         destAddr.transfer(amount);
-        balance -= amount;
+        balance -= amount; // balance is decreased by the amount given.
     }
 }
