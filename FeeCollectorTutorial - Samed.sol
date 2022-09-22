@@ -10,7 +10,7 @@ contract FeeCollector {
     }
 
     receive() payable external { // this is payable since wei is transferred.
-        balance += msg.value; // Message value is represented in wei.
+        balance += msg.value; // message value is represented in wei.
     }
 
 
