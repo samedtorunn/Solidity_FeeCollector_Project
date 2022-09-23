@@ -18,8 +18,9 @@ contract FeeCollector {
     function withdraw(uint amount, address payable destAddr) public { // money withdrawal function. 
         require(msg.sender == owner, "Only owners can request withdraw"); // requirement and the error if the requirement does not satisfied.
         require(amount <= balance, "Funds are not sufficient"); // requirement and the error if the requirement does not satisfied.
-
-        destAddr.transfer(amount); //amount gets transferred.
+        
         balance -= amount; // balance is decreased by the amount given.
+        destAddr.transfer(amount); //amount gets transferred.
+
     }
 }
